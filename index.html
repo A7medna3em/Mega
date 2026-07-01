@@ -132,21 +132,21 @@
             <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
           </a>
 
-          <a href="#" class="link-card" data-link="complaint" rel="noopener noreferrer" aria-label="Submit a complaint">
+          <button type="button" class="link-card" id="complaintTrigger" aria-haspopup="dialog" aria-controls="complaintModal">
             <span class="link-icon link-icon--complaint" aria-hidden="true"><i class="fa-solid fa-message"></i></span>
             <span class="link-text">
               <span class="link-title">Submit a Complaint</span>
               <span class="link-subtitle">Send us your complaint and we'll get back to you as soon as possible</span>
             </span>
             <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
-          </a>
+          </button>
 
         </nav>
 
         <!-- Footer -->
         <footer class="footer">
           <p>&copy; 2026 MEGA Phone And More</p>
-          <p class="footer-made">Made with <i class="fa-solid fa-heart" aria-hidden="true"></i></p>
+          <p class="footer-made">Feel the Power in Your Hand</p>
         </footer>
 
       </div>
@@ -158,6 +158,35 @@
     <span>Contact Us</span>
   </a>
 
+  <div class="modal-overlay" id="complaintModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-panel">
+      <button type="button" class="modal-close" id="modalClose" aria-label="Close">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+
+      <h2 class="modal-title" id="modalTitle">Submit a Complaint</h2>
+      <p class="modal-subtitle">We'll get back to you as soon as possible.</p>
+
+      <form id="complaintForm">
+        <div class="modal-field">
+          <label for="complaintName">Name</label>
+          <input type="text" id="complaintName" name="name" autocomplete="name" required />
+        </div>
+        <div class="modal-field">
+          <label for="complaintPhone">Phone (optional)</label>
+          <input type="tel" id="complaintPhone" name="phone" autocomplete="tel" />
+        </div>
+        <div class="modal-field">
+          <label for="complaintMessage">Your Complaint</label>
+          <textarea id="complaintMessage" name="message" required></textarea>
+        </div>
+        <button type="submit" class="modal-submit" id="modalSubmit">Send Complaint</button>
+        <p class="modal-status" id="modalStatus"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
