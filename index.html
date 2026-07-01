@@ -25,7 +25,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -136,12 +136,24 @@
               <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
             </button>
             <div class="location-panel" id="locationPanel">
-              <p class="location-address" dir="rtl">شارع السينما بجوار مطعم اغا</p>
-              <p class="location-phones">0100 993 7505 &bull; 047 255 7720</p>
-              <a href="https://maps.app.goo.gl/5PYBJnXiV4zfto4z8?g_st=ic" target="_blank" rel="noopener noreferrer" class="location-map">
-                <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
-                <span>Open in Google Maps</span>
-              </a>
+              <p class="location-address" dir="rtl">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                شارع السينما بجوار مطعم اغا
+              </p>
+              <div class="location-map">
+                <iframe
+                  class="location-map-frame"
+                  src="https://maps.google.com/maps?q=%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%A7%D9%84%D8%B3%D9%8A%D9%86%D9%85%D8%A7%20%D8%A8%D8%AC%D9%88%D8%A7%D8%B1%20%D9%85%D8%B7%D8%B9%D9%85%20%D8%A7%D8%BA%D8%A7&z=16&output=embed"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="MEGA Phone And More location preview"
+                  tabindex="-1"
+                ></iframe>
+                <a href="https://maps.app.goo.gl/5PYBJnXiV4zfto4z8?g_st=ic" target="_blank" rel="noopener noreferrer" class="location-map-overlay" aria-label="Open in Google Maps">
+                  <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+                  Open in Google Maps
+                </a>
+              </div>
             </div>
           </div>
 
