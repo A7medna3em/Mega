@@ -60,53 +60,113 @@
         <!-- Link Buttons -->
         <nav class="links" aria-label="Business links and services">
 
-          <a href="#" class="link-card" data-link="whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
-            <span class="link-icon link-icon--whatsapp" aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></span>
-            <span class="link-text">
-              <span class="link-title">WhatsApp</span>
-              <span class="link-subtitle">Join our channel</span>
-            </span>
-            <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
-          </a>
+          <div class="link-card link-card--expandable" id="whatsappCard">
+            <button type="button" class="link-card-trigger" aria-expanded="false" aria-controls="whatsappPanel">
+              <span class="link-icon link-icon--whatsapp" aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></span>
+              <span class="link-text">
+                <span class="link-title">WhatsApp</span>
+                <span class="link-subtitle">Join our channel</span>
+              </span>
+              <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
+            </button>
+            <div class="preview-panel" id="whatsappPanel">
+              <a class="preview-body preview-body--whatsapp" href="https://whatsapp.com/channel/0029Vb7lGWuEquiZL7Ujm505/" target="_blank" rel="noopener noreferrer">
+                <span class="preview-icon"><i class="fa-brands fa-whatsapp"></i></span>
+                <span class="preview-text">
+                  <span class="preview-name">MEGA Phone And More</span>
+                  <span class="preview-desc">Join our channel for updates &amp; offers</span>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square preview-go" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
 
-          <a href="#" class="link-card" data-link="instagram" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
-            <span class="link-icon link-icon--instagram" aria-hidden="true"><i class="fa-brands fa-instagram"></i></span>
-            <span class="link-text">
-              <span class="link-title">Instagram</span>
-              <span class="link-subtitle">Follow our latest updates</span>
-            </span>
-            <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
-          </a>
+          <div class="link-card link-card--expandable" id="instagramCard">
+            <button type="button" class="link-card-trigger" aria-expanded="false" aria-controls="instagramPanel">
+              <span class="link-icon link-icon--instagram" aria-hidden="true"><i class="fa-brands fa-instagram"></i></span>
+              <span class="link-text">
+                <span class="link-title">Instagram</span>
+                <span class="link-subtitle">Follow our latest updates</span>
+              </span>
+              <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
+            </button>
+            <div class="preview-panel" id="instagramPanel">
+              <a class="preview-body preview-body--instagram" href="https://www.instagram.com/megaphone_eg?igsh=bWR5bDRpOXA2ZjVq&utm_source=qr" target="_blank" rel="noopener noreferrer">
+                <span class="preview-icon"><i class="fa-brands fa-instagram"></i></span>
+                <span class="preview-text">
+                  <span class="preview-name">@megaphone_eg</span>
+                  <span class="preview-desc">See our latest photos &amp; reels</span>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square preview-go" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
 
-          <a href="#" class="link-card" data-link="facebook" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
-            <span class="link-icon link-icon--facebook" aria-hidden="true"><i class="fa-brands fa-facebook-f"></i></span>
-            <span class="link-text">
-              <span class="link-title">Facebook</span>
-              <span class="link-subtitle">Visit our official page</span>
-            </span>
-            <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
-          </a>
+          <div class="link-card link-card--expandable" id="facebookCard">
+            <button type="button" class="link-card-trigger" aria-expanded="false" aria-controls="facebookPanel">
+              <span class="link-icon link-icon--facebook" aria-hidden="true"><i class="fa-brands fa-facebook-f"></i></span>
+              <span class="link-text">
+                <span class="link-title">Facebook</span>
+                <span class="link-subtitle">Visit our official page</span>
+              </span>
+              <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
+            </button>
+            <div class="preview-panel" id="facebookPanel">
+              <a class="preview-body preview-body--facebook" href="https://www.facebook.com/share/1NwhVxJhsv/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+                <span class="preview-icon"><i class="fa-brands fa-facebook-f"></i></span>
+                <span class="preview-text">
+                  <span class="preview-name">MEGA Phone And More</span>
+                  <span class="preview-desc">Visit our official Facebook page</span>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square preview-go" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
 
-          <a href="#" class="link-card" data-link="tiktok" target="_blank" rel="noopener noreferrer" aria-label="Follow us on TikTok">
-            <span class="link-icon link-icon--tiktok" aria-hidden="true"><i class="fa-brands fa-tiktok"></i></span>
-            <span class="link-text">
-              <span class="link-title">TikTok</span>
-              <span class="link-subtitle">Watch our latest videos</span>
-            </span>
-            <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
-          </a>
+          <div class="link-card link-card--expandable" id="tiktokCard">
+            <button type="button" class="link-card-trigger" aria-expanded="false" aria-controls="tiktokPanel">
+              <span class="link-icon link-icon--tiktok" aria-hidden="true"><i class="fa-brands fa-tiktok"></i></span>
+              <span class="link-text">
+                <span class="link-title">TikTok</span>
+                <span class="link-subtitle">Watch our latest videos</span>
+              </span>
+              <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
+            </button>
+            <div class="preview-panel" id="tiktokPanel">
+              <a class="preview-body preview-body--tiktok" href="https://www.tiktok.com/@mega.phone_eg?_r=1&_t=ZS-97cMXStoM09" target="_blank" rel="noopener noreferrer">
+                <span class="preview-icon"><i class="fa-brands fa-tiktok"></i></span>
+                <span class="preview-text">
+                  <span class="preview-name">@mega.phone_eg</span>
+                  <span class="preview-desc">Watch our latest videos</span>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square preview-go" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
 
-          <a href="#" class="link-card" data-link="instapay" target="_blank" rel="noopener noreferrer" aria-label="Pay securely using InstaPay">
-            <span class="link-icon link-icon--instapay" aria-hidden="true"><i class="fa-solid fa-building-columns"></i></span>
-            <span class="link-text">
-              <span class="link-title">InstaPay</span>
-              <span class="link-subtitle">ilkia@instapay</span>
-            </span>
-            <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
-          </a>
+          <div class="link-card link-card--expandable" id="instapayCard">
+            <button type="button" class="link-card-trigger" aria-expanded="false" aria-controls="instapayPanel">
+              <span class="link-icon link-icon--instapay" aria-hidden="true"><i class="fa-solid fa-building-columns"></i></span>
+              <span class="link-text">
+                <span class="link-title">InstaPay</span>
+                <span class="link-subtitle">Tap to view payment details</span>
+              </span>
+              <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
+            </button>
+            <div class="preview-panel" id="instapayPanel">
+              <a class="preview-body preview-body--instapay" href="https://ipn.eg/S/ilkia/instapay/93TGEt" target="_blank" rel="noopener noreferrer">
+                <span class="preview-icon"><i class="fa-solid fa-building-columns"></i></span>
+                <span class="preview-text">
+                  <span class="preview-name">ilkia@instapay</span>
+                  <span class="preview-desc">Pay securely via InstaPay</span>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square preview-go" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
 
-          <div class="link-card link-card--vfcash" id="vfCashCard">
-            <button type="button" class="link-card-trigger" id="vfCashTrigger" aria-expanded="false" aria-controls="vfCashPanel">
+          <div class="link-card link-card--expandable link-card--vfcash" id="vfCashCard">
+            <button type="button" class="link-card-trigger" aria-expanded="false" aria-controls="vfCashPanel">
               <span class="link-icon link-icon--vodafone" aria-hidden="true"><i class="fa-solid fa-wallet"></i></span>
               <span class="link-text">
                 <span class="link-title">Vodafone Cash</span>
@@ -126,8 +186,8 @@
             </div>
           </div>
 
-          <div class="link-card link-card--location" id="locationCard">
-            <button type="button" class="link-card-trigger" id="locationTrigger" aria-expanded="false" aria-controls="locationPanel">
+          <div class="link-card link-card--expandable link-card--location" id="locationCard">
+            <button type="button" class="link-card-trigger" aria-expanded="false" aria-controls="locationPanel">
               <span class="link-icon link-icon--rating" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
               <span class="link-text">
                 <span class="link-title">Our Location</span>
