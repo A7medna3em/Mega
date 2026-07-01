@@ -8,8 +8,7 @@ const links = {
   instagram: "https://www.instagram.com/megaphone_eg?igsh=bWR5bDRpOXA2ZjVq&utm_source=qr",
   facebook: "https://www.facebook.com/share/1NwhVxJhsv/?mibextid=wwXIfr",
   tiktok: "https://www.tiktok.com/@mega.phone_eg?_r=1&_t=ZS-97cMXStoM09",
-  instapay: "https://ipn.eg/S/ilkia/instapay/93TGEt",
-  rating: "https://maps.app.goo.gl/5PYBJnXiV4zfto4z8?g_st=ic"
+  instapay: "https://ipn.eg/S/ilkia/instapay/93TGEt"
 };
 
 // Wire each link card to its destination from the `links` object above.
@@ -189,11 +188,23 @@ function initPullToRefresh() {
   });
 }
 
+// ---------- Our Location: expand to reveal address and map ----------
+function initLocation() {
+  const card = document.getElementById("locationCard");
+  const trigger = document.getElementById("locationTrigger");
+
+  trigger.addEventListener("click", () => {
+    const isOpen = card.classList.toggle("is-open");
+    trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+}
+
 // ---------- Init ----------
 document.addEventListener("DOMContentLoaded", () => {
   applyLinks();
   initParallax();
   initVfCash();
+  initLocation();
   initComplaintModal();
   initFabContact();
   initPullToRefresh();
