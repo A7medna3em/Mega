@@ -342,10 +342,8 @@ a {
     color: var(--primary);
   }
 
-  .link-card--vfcash:hover,
-  .link-card--vfcash:focus-visible,
-  .link-card--location:hover,
-  .link-card--location:focus-visible {
+  .link-card--expandable:hover,
+  .link-card--expandable:focus-visible {
     padding: 0;
     transform: none;
     background: linear-gradient(135deg, rgba(168, 85, 247, 0.10), var(--card-bg));
@@ -353,11 +351,11 @@ a {
 }
 
 /* ---------- Expandable cards (Vodafone Cash / Our Location) ---------- */
-.link-card--vfcash,
-.link-card--location {
+.link-card--expandable {
   flex-direction: column;
   align-items: stretch;
   padding: 0;
+  overflow: hidden;
   cursor: default;
 }
 
@@ -375,8 +373,7 @@ a {
   cursor: pointer;
 }
 
-.link-card--vfcash.is-open .link-arrow,
-.link-card--location.is-open .link-arrow {
+.link-card--expandable.is-open .link-arrow {
   transform: rotate(90deg);
   color: var(--primary);
 }
@@ -398,6 +395,86 @@ a {
   overflow: hidden;
   padding: 0 11px;
   transition: max-height 300ms var(--ease), padding 300ms var(--ease);
+}
+
+.preview-panel {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 11px;
+  transition: max-height 300ms var(--ease), padding 300ms var(--ease);
+}
+
+.link-card--expandable.is-open .preview-panel {
+  max-height: 90px;
+  padding: 0 11px 11px;
+}
+
+.preview-body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: background 200ms var(--ease), border-color 200ms var(--ease), transform 200ms var(--ease);
+}
+
+.preview-body:hover {
+  transform: translateY(-1px);
+  background: rgba(168, 85, 247, 0.15);
+  border-color: rgba(168, 85, 247, 0.35);
+}
+
+.preview-icon {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #fff;
+}
+
+.preview-body--whatsapp .preview-icon { background: linear-gradient(145deg, #25D366, #128C7E); }
+.preview-body--instagram .preview-icon { background: linear-gradient(145deg, #F58529, #DD2A7B, #8134AF); }
+.preview-body--facebook .preview-icon { background: linear-gradient(145deg, #1877F2, #0C44A6); }
+.preview-body--tiktok .preview-icon { background: linear-gradient(145deg, #25F4EE, #010101, #FE2C55); }
+.preview-body--instapay .preview-icon { background: linear-gradient(145deg, var(--primary), var(--accent-deep)); }
+
+.preview-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.preview-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.preview-desc {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+.preview-go {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.preview-body:hover .preview-go {
+  color: var(--primary);
 }
 
 .link-card--location.is-open .location-panel {
@@ -750,8 +827,7 @@ a {
     padding: 12px 16px;
   }
 
-  .link-card--vfcash,
-  .link-card--location {
+  .link-card--expandable {
     padding: 0;
   }
 
