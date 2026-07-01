@@ -9,8 +9,7 @@ const links = {
   facebook: "https://www.facebook.com/share/1NwhVxJhsv/?mibextid=wwXIfr",
   tiktok: "https://www.tiktok.com/@mega.phone_eg?_r=1&_t=ZS-97cMXStoM09",
   instapay: "https://ipn.eg/S/ilkia/instapay/93TGEt",
-  rating: "https://maps.app.goo.gl/5PYBJnXiV4zfto4z8?g_st=ic",
-  complaint: "mailto:" + ["magedelmenshawy", "icloud.com"].join("@")
+  rating: "https://maps.app.goo.gl/5PYBJnXiV4zfto4z8?g_st=ic"
 };
 
 // Wire each link card to its destination from the `links` object above.
@@ -80,9 +79,80 @@ function initVfCash() {
   });
 }
 
+// ---------- EmailJS ----------
+// Replace these with your own IDs from https://dashboard.emailjs.com
+// The recipient address is set inside your EmailJS template, so it never
+// needs to appear here or anywhere on the page.
+const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
+const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+
+emailjs.init(EMAILJS_PUBLIC_KEY);
+
+// ---------- Complaint modal ----------
+function initComplaintModal() {
+  const trigger = document.getElementById("complaintTrigger");
+  const overlay = document.getElementById("complaintModal");
+  const closeBtn = document.getElementById("modalClose");
+  const form = document.getElementById("complaintForm");
+  const submitBtn = document.getElementById("modalSubmit");
+  const status = document.getElementById("modalStatus");
+
+  function openModal() {
+    overlay.classList.add("is-open");
+  }
+
+  function closeModal() {
+    overlay.classList.remove("is-open");
+  }
+
+  trigger.addEventListener("click", openModal);
+  closeBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    status.textContent = "";
+    status.className = "modal-status";
+
+    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
+      .then(() => {
+        status.textContent = "Your complaint has been sent. Thank you!";
+        status.classList.add("is-success");
+        form.reset();
+        setTimeout(closeModal, 1800);
+      })
+      .catch(() => {
+        status.textContent = "Something went wrong. Please try again.";
+        status.classList.add("is-error");
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Complaint";
+      });
+  });
+}
+
+// ---------- Floating contact button: extend on tap (touch devices) ----------
+function initFabContact() {
+  const fab = document.querySelector(".fab-contact");
+  if (!fab) return;
+
+  fab.addEventListener("touchstart", () => {
+    fab.classList.add("is-active");
+    setTimeout(() => fab.classList.remove("is-active"), 2000);
+  });
+}
+
 // ---------- Init ----------
 document.addEventListener("DOMContentLoaded", () => {
   applyLinks();
   initParallax();
   initVfCash();
+  initComplaintModal();
+  initFabContact();
 });
