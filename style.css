@@ -184,6 +184,35 @@ a {
   border-radius: 4px;
 }
 
+/* ---------- Pull to refresh ---------- */
+.pull-refresh {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  color: var(--primary);
+  font-size: 17px;
+  transition: opacity 150ms var(--ease);
+}
+
+.pull-refresh.is-visible {
+  opacity: 1;
+}
+
+.pull-refresh i {
+  transform: rotate(var(--pull-rotate, 0deg));
+}
+
+.pull-refresh.is-ready i {
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 /* ---------- Links ---------- */
 .links {
   display: flex;
