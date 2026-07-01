@@ -61,7 +61,7 @@
             <span class="link-icon link-icon--whatsapp" aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></span>
             <span class="link-text">
               <span class="link-title">WhatsApp</span>
-              <span class="link-subtitle">Chat with us instantly</span>
+              <span class="link-subtitle">Join our channel</span>
             </span>
             <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
           </a>
@@ -102,14 +102,26 @@
             <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
           </a>
 
-          <a href="#" class="link-card" data-link="vodafoneCash" target="_blank" rel="noopener noreferrer" aria-label="Pay using Vodafone Cash">
-            <span class="link-icon link-icon--vodafone" aria-hidden="true"><i class="fa-solid fa-wallet"></i></span>
-            <span class="link-text">
-              <span class="link-title">Vodafone Cash</span>
-              <span class="link-subtitle">01034868611 / 01034868621</span>
-            </span>
-            <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
-          </a>
+          <div class="link-card link-card--vfcash" id="vfCashCard">
+            <button type="button" class="link-card-trigger" id="vfCashTrigger" aria-expanded="false" aria-controls="vfCashPanel">
+              <span class="link-icon link-icon--vodafone" aria-hidden="true"><i class="fa-solid fa-wallet"></i></span>
+              <span class="link-text">
+                <span class="link-title">Vodafone Cash</span>
+                <span class="link-subtitle">Tap to view payment numbers</span>
+              </span>
+              <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
+            </button>
+            <div class="vf-panel" id="vfCashPanel">
+              <button type="button" class="vf-number-row" data-number="01034868611">
+                <span class="vf-number">01034868611</span>
+                <span class="vf-copy"><i class="fa-regular fa-copy" aria-hidden="true"></i><span class="vf-copy-text">Copy</span></span>
+              </button>
+              <button type="button" class="vf-number-row" data-number="01034868621">
+                <span class="vf-number">01034868621</span>
+                <span class="vf-copy"><i class="fa-regular fa-copy" aria-hidden="true"></i><span class="vf-copy-text">Copy</span></span>
+              </button>
+            </div>
+          </div>
 
           <a href="#" class="link-card" data-link="rating" target="_blank" rel="noopener noreferrer" aria-label="Find our location">
             <span class="link-icon link-icon--rating" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
@@ -140,6 +152,11 @@
       </div>
     </div>
   </main>
+
+  <a href="https://wa.me/201009337505" target="_blank" rel="noopener noreferrer" class="fab-contact" aria-label="Contact us on WhatsApp">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    <span>Contact Us</span>
+  </a>
 
   <script src="script.js"></script>
 </body>
