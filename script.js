@@ -9,7 +9,6 @@ const links = {
   facebook: "https://www.facebook.com/share/1NwhVxJhsv/?mibextid=wwXIfr",
   tiktok: "https://www.tiktok.com/@mega.phone_eg?_r=1&_t=ZS-97cMXStoM09",
   instapay: "https://ipn.eg/S/ilkia/instapay/93TGEt",
-  vodafoneCash: "tel:01034868611",
   rating: "https://maps.app.goo.gl/5PYBJnXiV4zfto4z8?g_st=ic",
   complaint: "mailto:" + ["magedelmenshawy", "icloud.com"].join("@")
 };
@@ -48,8 +47,42 @@ function initParallax() {
   });
 }
 
+// ---------- Vodafone Cash: expand to reveal numbers, tap to copy ----------
+function initVfCash() {
+  const card = document.getElementById("vfCashCard");
+  const trigger = document.getElementById("vfCashTrigger");
+
+  trigger.addEventListener("click", () => {
+    const isOpen = card.classList.toggle("is-open");
+    trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  card.querySelectorAll(".vf-number-row").forEach((row) => {
+    row.addEventListener("click", async () => {
+      const number = row.getAttribute("data-number");
+      const copyLabel = row.querySelector(".vf-copy");
+      const copyText = row.querySelector(".vf-copy-text");
+      const originalText = copyText.textContent;
+
+      try {
+        await navigator.clipboard.writeText(number);
+        copyText.textContent = "Copied";
+        copyLabel.classList.add("is-copied");
+      } catch (err) {
+        copyText.textContent = "Copy failed";
+      }
+
+      setTimeout(() => {
+        copyText.textContent = originalText;
+        copyLabel.classList.remove("is-copied");
+      }, 1500);
+    });
+  });
+}
+
 // ---------- Init ----------
 document.addEventListener("DOMContentLoaded", () => {
   applyLinks();
   initParallax();
+  initVfCash();
 });
