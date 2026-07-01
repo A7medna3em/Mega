@@ -126,14 +126,24 @@
             </div>
           </div>
 
-          <a href="#" class="link-card" data-link="rating" target="_blank" rel="noopener noreferrer" aria-label="Find our location">
-            <span class="link-icon link-icon--rating" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
-            <span class="link-text">
-              <span class="link-title">Our Location</span>
-              <span class="link-subtitle">Find us on the map</span>
-            </span>
-            <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
-          </a>
+          <div class="link-card link-card--location" id="locationCard">
+            <button type="button" class="link-card-trigger" id="locationTrigger" aria-expanded="false" aria-controls="locationPanel">
+              <span class="link-icon link-icon--rating" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+              <span class="link-text">
+                <span class="link-title">Our Location</span>
+                <span class="link-subtitle">Find us on the map</span>
+              </span>
+              <i class="fa-solid fa-chevron-right link-arrow" aria-hidden="true"></i>
+            </button>
+            <div class="location-panel" id="locationPanel">
+              <p class="location-address" dir="rtl">شارع السينما بجوار مطعم اغا</p>
+              <p class="location-phones">0100 993 7505 &bull; 047 255 7720</p>
+              <a href="https://maps.app.goo.gl/5PYBJnXiV4zfto4z8?g_st=ic" target="_blank" rel="noopener noreferrer" class="location-map">
+                <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+                <span>Open in Google Maps</span>
+              </a>
+            </div>
+          </div>
 
           <button type="button" class="link-card" id="complaintTrigger" aria-haspopup="dialog" aria-controls="complaintModal">
             <span class="link-icon link-icon--complaint" aria-hidden="true"><i class="fa-solid fa-message"></i></span>
