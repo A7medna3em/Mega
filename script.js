@@ -148,6 +148,47 @@ function initFabContact() {
   });
 }
 
+// ---------- Pull to refresh ----------
+function initPullToRefresh() {
+  const scrollArea = document.querySelector(".scroll-area");
+  const indicator = document.getElementById("pullRefresh");
+  const threshold = 70;
+  let startY = 0;
+  let pulling = false;
+
+  scrollArea.addEventListener("touchstart", (e) => {
+    pulling = scrollArea.scrollTop === 0;
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+
+  scrollArea.addEventListener("touchmove", (e) => {
+    if (!pulling) return;
+    const delta = e.touches[0].clientY - startY;
+    if (delta <= 0) return;
+
+    const pull = Math.min(delta, threshold * 1.5);
+    indicator.style.height = pull + "px";
+    indicator.style.setProperty("--pull-rotate", Math.min(pull / threshold, 1) * 360 + "deg");
+    indicator.classList.add("is-visible");
+    indicator.classList.toggle("is-ready", pull >= threshold);
+
+    if (delta > 10) e.preventDefault();
+  }, { passive: false });
+
+  scrollArea.addEventListener("touchend", () => {
+    if (!pulling) return;
+    pulling = false;
+
+    if (indicator.classList.contains("is-ready")) {
+      indicator.style.height = threshold + "px";
+      setTimeout(() => location.reload(), 300);
+    } else {
+      indicator.style.height = "0px";
+      indicator.classList.remove("is-visible", "is-ready");
+    }
+  });
+}
+
 // ---------- Init ----------
 document.addEventListener("DOMContentLoaded", () => {
   applyLinks();
@@ -155,4 +196,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initVfCash();
   initComplaintModal();
   initFabContact();
+  initPullToRefresh();
 });
