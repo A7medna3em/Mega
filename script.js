@@ -2,31 +2,6 @@
 // MEGA Phone And More — Link in Bio
 // ============================================================
 
-// All outbound destinations live here. Edit these values only.
-const links = {
-  whatsapp: "https://whatsapp.com/channel/0029Vb7lGWuEquiZL7Ujm505/",
-  instagram: "https://www.instagram.com/megaphone_eg?igsh=bWR5bDRpOXA2ZjVq&utm_source=qr",
-  facebook: "https://www.facebook.com/share/1NwhVxJhsv/?mibextid=wwXIfr",
-  tiktok: "https://www.tiktok.com/@mega.phone_eg?_r=1&_t=ZS-97cMXStoM09",
-  instapay: "https://ipn.eg/S/ilkia/instapay/93TGEt"
-};
-
-// Wire each link card to its destination from the `links` object above.
-function applyLinks() {
-  document.querySelectorAll("[data-link]").forEach((card) => {
-    const key = card.getAttribute("data-link");
-    const url = links[key];
-
-    if (url) {
-      card.setAttribute("href", url);
-    } else {
-      // No URL configured yet: keep the card visible but inert.
-      card.removeAttribute("href");
-      card.setAttribute("aria-disabled", "true");
-      card.addEventListener("click", (e) => e.preventDefault());
-    }
-  });
-}
 
 // ---------- Dynamic background on scroll ----------
 function initParallax() {
@@ -45,17 +20,20 @@ function initParallax() {
   });
 }
 
-// ---------- Vodafone Cash: expand to reveal numbers, tap to copy ----------
-function initVfCash() {
-  const card = document.getElementById("vfCashCard");
-  const trigger = document.getElementById("vfCashTrigger");
-
-  trigger.addEventListener("click", () => {
-    const isOpen = card.classList.toggle("is-open");
-    trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+// ---------- Expandable cards: generic open/close toggle ----------
+function initExpandableCards() {
+  document.querySelectorAll(".link-card--expandable").forEach((card) => {
+    const trigger = card.querySelector(".link-card-trigger");
+    trigger.addEventListener("click", () => {
+      const isOpen = card.classList.toggle("is-open");
+      trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
   });
+}
 
-  card.querySelectorAll(".vf-number-row").forEach((row) => {
+// ---------- Vodafone Cash: tap a number to copy it ----------
+function initVfCashCopy() {
+  document.querySelectorAll(".vf-number-row").forEach((row) => {
     row.addEventListener("click", async () => {
       const number = row.getAttribute("data-number");
       const copyLabel = row.querySelector(".vf-copy");
@@ -188,23 +166,11 @@ function initPullToRefresh() {
   });
 }
 
-// ---------- Our Location: expand to reveal address and map ----------
-function initLocation() {
-  const card = document.getElementById("locationCard");
-  const trigger = document.getElementById("locationTrigger");
-
-  trigger.addEventListener("click", () => {
-    const isOpen = card.classList.toggle("is-open");
-    trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  });
-}
-
 // ---------- Init ----------
 document.addEventListener("DOMContentLoaded", () => {
-  applyLinks();
   initParallax();
-  initVfCash();
-  initLocation();
+  initExpandableCards();
+  initVfCashCopy();
   initComplaintModal();
   initFabContact();
   initPullToRefresh();
