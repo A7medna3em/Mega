@@ -1,0 +1,18 @@
+# Long-term caching for static, rarely-changing assets.
+# If your host doesn't read this file format (Netlify/Cloudflare Pages do),
+# translate the same rules into your server/CDN config (Nginx, Apache .htaccess, etc.)
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/webfonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/style.min.css
+  Cache-Control: public, max-age=604800
+
+/script.min.js
+  Cache-Control: public, max-age=604800
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
