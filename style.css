@@ -857,3 +857,12 @@ a {
     padding-right: 16px;
   }
 }
+.pull-refresh-icon {
+  width: 22px;
+  height: auto;
+  transform: rotate(var(--pull-rotate, 0deg));
+}
+
+.pull-refresh.is-ready .pull-refresh-icon {
+  animation: spin 700ms linear infinite;
+}
