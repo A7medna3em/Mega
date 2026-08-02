@@ -868,6 +868,8 @@ a {
 }
 .link-icon-img {
   display: block;
-  height: 55%;
+  max-width: 62%;
+  max-height: 55%;
   width: auto;
+  height: auto;
 }
