@@ -873,3 +873,6 @@ a {
   width: auto;
   height: auto;
 }
+.link-icon--vodafone .link-icon-img {
+  max-height: 46%;
+}
