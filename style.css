@@ -866,16 +866,8 @@ a {
 .pull-refresh.is-ready .pull-refresh-icon {
   animation: spin 700ms linear infinite;
 }
-.link-icon--instapay,
-.link-icon--vodafone {
-  background: none;
-  box-shadow: none;
-}
-
 .link-icon-img {
   display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: var(--radius-icon);
-  object-fit: cover;
+  height: 55%;
+  width: auto;
 }
