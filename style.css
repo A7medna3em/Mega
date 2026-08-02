@@ -873,8 +873,9 @@ a {
 }
 
 .link-icon-img {
-  width: 32px;
-  height: 32px;
+  display: block;
+  width: 100%;
+  height: 100%;
   border-radius: var(--radius-icon);
   object-fit: cover;
 }
